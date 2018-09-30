@@ -11,23 +11,25 @@ public class OrganicPetTest {
 
 		underTest.feed("");
 
-		Assert.assertEquals(20, underTest.hunger);
+		Assert.assertEquals(20, underTest.getHunger());
 	}
 
 	@Test
 	public void shouldBeHungry() {
 		OrganicPet underTest = new OrganicPet("", "");
-		int petHunger = underTest.hunger;
+		int petHunger = underTest.getHunger();
 		Assert.assertEquals(50, petHunger);
 	}
 
 	@Test
 	public void shouldLoseHealthWhenUnclean() {
 		OrganicPet underTest = new OrganicPet("", "");
-		underTest.happiness = 20;
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
 		underTest.loseHPWhenUnclean();
 		int result = underTest.getHealth();
-		Assert.assertEquals(80, result);
+		Assert.assertEquals(90, result);
 	}
 
 }

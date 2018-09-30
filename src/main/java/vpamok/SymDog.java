@@ -1,17 +1,15 @@
 package vpamok;
 
-public class SymDog extends SymPet {
+public class SymDog extends SymPet implements Walking {
 
 	public SymDog(String name, String description) {
 		super(name, description);
 		rust = 0;
 	}
 
-	public void decreaseHealthFromRust() {
-		if (rust >= 30) { // TODO put condition in tick?
-			health -= 15;
-		}
-
+	@Override
+	public void walk() {
+		happiness += 15;
 	}
 
 }

@@ -1,9 +1,9 @@
 package vpamok;
 
 public class OrganicPet extends VirtualPet {
-	int hunger;
-	int thirst;
-	int poo;
+	protected int hunger;
+	protected int thirst;
+	protected int poo;
 
 	public int getHunger() {
 		return hunger;
@@ -25,9 +25,8 @@ public class OrganicPet extends VirtualPet {
 
 	public void loseHPWhenUnclean() {
 		if (poo > 30) {
-			health -= 20;
+			loseHP();
 		}
-
 	}
 
 	public void feed(String food) {
@@ -36,6 +35,14 @@ public class OrganicPet extends VirtualPet {
 
 	public void drink(String drink) {
 		thirst -= 30;
+	}
+
+	@Override
+	public void tick() {
+		happiness -= 10;
+		poo += 10;
+		hunger += 15;
+		thirst += 10;
 	}
 
 }

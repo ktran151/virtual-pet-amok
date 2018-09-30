@@ -19,7 +19,6 @@ public class VirtualPetTest {
 	@Test
 	public void shouldBeAlive() {
 		VirtualPet underTest = new VirtualPet("", "");
-
 		boolean alive = underTest.alive;
 		Assert.assertTrue(alive);
 	}
@@ -36,9 +35,9 @@ public class VirtualPetTest {
 	public void shouldLoseHealthWhenUnhappy() {
 		VirtualPet underTest = new VirtualPet("", "");
 		underTest.happiness = 20;
-		underTest.loseHPWhenUnhappy();
+		underTest.loseHP();
 		int result = underTest.getHealth();
-		Assert.assertEquals(80, result);
+		Assert.assertEquals(90, result);
 	}
 
 }

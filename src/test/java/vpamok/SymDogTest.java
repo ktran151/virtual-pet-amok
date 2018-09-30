@@ -23,4 +23,22 @@ public class SymDogTest {
 		Assert.assertEquals(85, result);
 	}
 
+	@Test
+	public void oilShouldReduceRust() {
+		underTest.giveOil();
+	}
+
+	@Test
+	public void shouldHaveInheritedHappy() {
+		int result = underTest.getHappiness();
+		Assert.assertEquals(50, result);
+	}
+
+	@Test
+	public void shouldIncreaseHappyFromWalk() {
+		underTest.walk();
+		int result = underTest.getHappiness();
+		Assert.assertEquals(65, result);
+	}
+
 }

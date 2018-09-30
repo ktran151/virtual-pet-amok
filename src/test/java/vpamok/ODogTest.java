@@ -26,17 +26,28 @@ public class ODogTest {
 	}
 
 	@Test
-	public void shouldDecreaseCleanFromWalk() {
+	public void shouldDecreasePooFromWalk() {
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
 		underTest.walk();
 		int result = underTest.getPoo();
-		Assert.assertEquals(-20, result);
+		Assert.assertEquals(10, result);
 	}
 
 	@Test
 	public void shouldCleanCage() {
+		underTest.walk();
 		underTest.cleanCage();
 		int result = underTest.getPoo();
 		Assert.assertEquals(0, result);
+	}
+
+	@Test
+	public void shouldGetPooFromOverridedTick() {
+		underTest.tick();
+		int result = underTest.getPoo();
+		Assert.assertEquals(10, result);
 	}
 
 }

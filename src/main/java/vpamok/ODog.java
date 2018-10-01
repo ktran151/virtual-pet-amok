@@ -3,7 +3,7 @@ package vpamok;
 public class ODog extends OrganicPet implements Walking {
 
 	public ODog(String name, String description) {
-		super(description, name);
+		super(name, description);
 //		this.poo = getPoo();
 //		this.happiness = getHappiness();
 	}

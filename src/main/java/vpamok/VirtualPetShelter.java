@@ -9,17 +9,17 @@ import vpamok.VirtualPet;
 
 public class VirtualPetShelter {
 
-	Map<String, VirtualPet> shelter = new HashMap<String, VirtualPet>();
+	public Map<String, VirtualPet> shelter = new HashMap<String, VirtualPet>();
 
 	boolean allPetsAlive = true;
 	private int litterBox = 0;
 
+	public int numberOfPets() {
+		return shelter.size();
+	}
+
 	public boolean hasNoPets() {
-		if (shelter.isEmpty()) {
-			return true;
-		} else {
-			return false;
-		}
+		return shelter.isEmpty();
 	}
 
 	public void addPet(String id, VirtualPet petToAdd) {
@@ -31,21 +31,20 @@ public class VirtualPetShelter {
 	}
 
 	public Collection<VirtualPet> allPets() {
-		Collection<VirtualPet> petCollection = shelter.values();
-		return petCollection;
+		return shelter.values();
 	}
 
 	public void allPetsPlay() {
 		for (Entry<String, VirtualPet> eachPet : shelter.entrySet()) {
 			VirtualPet loopedPet = eachPet.getValue();
-			loopedPet.play("");
+			loopedPet.play();
 		}
 	}
 
 	public void playWithOnePet(String name) {
 		VirtualPet playingPet = shelter.get(name);
-		playingPet.play("");
-		playingPet.play("");
+		playingPet.play();
+		playingPet.play();
 	}
 
 	public VirtualPet fetchPetFromId(String id) {
@@ -59,14 +58,8 @@ public class VirtualPetShelter {
 		}
 	}
 
-	public void walkDogs() {
-		for (VirtualPet eachPet : allPets()) {
-			if (eachPet instanceof Walking) {
-				((Walking) eachPet).walk();
-			}
-		}
-	}
-
+//***************************************************
+	// litterBox methods
 	public void pooInLitterBox() {
 		litterBox += 1;
 	}
@@ -77,6 +70,40 @@ public class VirtualPetShelter {
 
 	public void cleanLitterBox() {
 		litterBox = 0;
+	}
+
+	// AMOK methods
+	// ***************************************************
+	public void walkDogs() {
+		for (VirtualPet eachPet : allPets()) {
+			if (eachPet instanceof Walking) {
+				((Walking) eachPet).walk();
+			}
+		}
+	}
+
+	public void feedOPets() {
+		for (VirtualPet eachPet : allPets()) {
+			if (eachPet instanceof OrganicPet) {
+				((OrganicPet) eachPet).feed();
+			}
+		}
+	}
+
+	public void waterOPets() {
+		for (VirtualPet eachPet : allPets()) {
+			if (eachPet instanceof OrganicPet) {
+				((OrganicPet) eachPet).drink();
+			}
+		}
+	}
+
+	public void cleanODogs() {
+		for (VirtualPet eachPet : allPets()) {
+			if (eachPet instanceof ODog) {
+				((ODog) eachPet).cleanCage();
+			}
+		}
 	}
 
 	public void lowerCatHealth() {
@@ -95,7 +122,6 @@ public class VirtualPetShelter {
 				((SymPet) eachPet).giveOil();
 			}
 		}
-
 	}
 
 }

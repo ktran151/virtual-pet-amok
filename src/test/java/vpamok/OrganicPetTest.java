@@ -9,9 +9,9 @@ public class OrganicPetTest {
 	public void shouldFeed() {
 		OrganicPet underTest = new OrganicPet("", "");
 
-		underTest.feed("");
+		underTest.feed();
 
-		Assert.assertEquals(20, underTest.getHunger());
+		Assert.assertEquals(30, underTest.getHunger());
 	}
 
 	@Test
@@ -27,7 +27,7 @@ public class OrganicPetTest {
 		underTest.tick();
 		underTest.tick();
 		underTest.tick();
-		underTest.loseHPWhenUnclean();
+		underTest.loseHPWhenLowHappy();
 		int result = underTest.getHealth();
 		Assert.assertEquals(90, result);
 	}

@@ -36,20 +36,37 @@ public class VirtualPet {
 		this.description = description;
 	}
 
-	public void play(String game) {
-		happiness += 10;
+	public void play() {
+		happiness += 15;
 	}
 
 	public void die() {
 		alive = false;
+		System.out.println(name + "has died!");
 	}
 
 	public void tick() {
 		happiness -= 10;
+		loseHPWhenLowHappy();
+		if (health <= 0) {
+			die();
+		}
+	}
+
+	public void loseHPWhenLowHappy() {
+		if (happiness < 30) {
+			System.out.println(getName() + " is unhappy \n-10 HP");
+			loseHP();
+		}
 	}
 
 	public void loseHP() {
 		health -= 10;
+	}
+
+	@Override
+	public String toString() {
+		return getName() + "\t|" + getHealth() + " | " + getHappiness() + " | ";
 	}
 
 }

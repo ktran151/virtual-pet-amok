@@ -23,18 +23,23 @@ public class OrganicPet extends VirtualPet {
 		this.thirst = 50;
 	}
 
-	public void loseHPWhenUnclean() {
+	public void loseHPIfSubOptimal() {
 		if (poo > 30) {
+			System.out.println(getName() + " is filthy! \n-10HP");
+			loseHP();
+		}
+		if (hunger <= 0 || thirst <= 0) {
+			System.out.println(getName() + " requires sustenance! \n-10HP");
 			loseHP();
 		}
 	}
 
-	public void feed(String food) {
-		hunger -= 30;
+	public void feed() {
+		hunger -= 20;
 	}
 
-	public void drink(String drink) {
-		thirst -= 30;
+	public void drink() {
+		thirst -= 20;
 	}
 
 	@Override
@@ -43,6 +48,16 @@ public class OrganicPet extends VirtualPet {
 		poo += 10;
 		hunger += 15;
 		thirst += 10;
+		loseHPIfSubOptimal();
+		if (health <= 0) {
+			die();
+		}
+	}
+
+	@Override
+	public String toString() {
+		return getName() + "\t  |" + getHealth() + " \t| " + getHappiness() + "    \t| " + getHunger() + "    | "
+				+ getThirst() + "    |   X   ||";
 	}
 
 }

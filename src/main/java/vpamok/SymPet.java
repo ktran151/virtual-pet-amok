@@ -14,8 +14,9 @@ public class SymPet extends VirtualPet {
 	}
 
 	public void decreaseHealthFromRust() {
-		if (rust >= 30) { // TODO put condition in tick?
-			health -= 15;
+		if (rust >= 30) {
+			System.out.println(getName() + " is rusty! \n-10HP");
+			health -= 20;
 		}
 	}
 
@@ -30,5 +31,16 @@ public class SymPet extends VirtualPet {
 	@Override
 	public void tick() {
 		rust += 10;
+		happiness -= 10;
+		decreaseHealthFromRust();
+		if (health <= 0) {
+			die();
+		}
+	}
+
+	@Override
+	public String toString() {
+		return getName() + "\t  |" + getHealth() + " \t| " + getHappiness() + "    \t|   X   |   X   | " + getRust()
+				+ "\t||";
 	}
 }

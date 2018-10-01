@@ -18,9 +18,8 @@ public class SymDogTest {
 		underTest.tick();
 		underTest.tick();
 		underTest.tick();
-		underTest.decreaseHealthFromRust();
 		int result = underTest.getHealth();
-		Assert.assertEquals(85, result);
+		Assert.assertEquals(80, result);
 	}
 
 	@Test

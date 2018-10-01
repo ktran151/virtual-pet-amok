@@ -35,7 +35,7 @@ public class VirtualPetShelterTest {
 		underTest.addPet("", dummyPet);
 		underTest.allPetsPlay();
 		int dummyHappiness = dummyPet.getHappiness();
-		assertEquals(60, dummyHappiness);
+		assertEquals(65, dummyHappiness);
 	}
 
 	@Test
@@ -67,7 +67,7 @@ public class VirtualPetShelterTest {
 		underTest.addPet("", dummyPet);
 		underTest.playWithOnePet("");
 		int afterPlay = dummyPet.getHappiness();
-		assertEquals(70, afterPlay);
+		assertEquals(80, afterPlay);
 	}
 
 	@Test

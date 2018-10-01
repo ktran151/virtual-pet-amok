@@ -63,6 +63,7 @@ public class VPShelterApp {
 			shelter.playWithOnePet(petName);
 			break;
 		case "5":
+			System.out.println("You go out on a walk with the dogs");
 			shelter.walkDogs();
 			break;
 		case "6":
@@ -161,8 +162,9 @@ public class VPShelterApp {
 		System.out.println("2. Oil Machine Pets");
 		System.out.println("3. Pets free play time");
 		System.out.println("4. Play with a pet");
-		System.out.println("5. Shelter Options");
-		System.out.println("6. Quit");
+		System.out.println("5. Walk Dogs");
+		System.out.println("6. Shelter Options");
+		System.out.println("7. Quit");
 	}
 
 	private static void displayOrganicSubMenu() {
@@ -190,14 +192,14 @@ public class VPShelterApp {
 		for (VirtualPet loopedPet : thisShelter.allPets()) {
 			System.out.println(loopedPet);
 		}
-		System.out.println("**********************************************************\n");
-		System.out.println("Shelter Litterbox: " + thisShelter.getLitterBox());
+		System.out.println("**********************************************************");
+		System.out.println("Shelter Litterbox: " + thisShelter.getLitterBox() + "\n");
 	}
 
 	public static void displayPetsWithDescriptions(VirtualPetShelter thisShelter) {
 		for (Entry<String, VirtualPet> eachPet : thisShelter.shelter.entrySet()) {
 			VirtualPet loopedPet = eachPet.getValue();
-			System.out.println(loopedPet.getName() + ": " + loopedPet.description);
+			System.out.println(loopedPet.getName() + ": " + loopedPet.getDesciption());
 		}
 
 	}

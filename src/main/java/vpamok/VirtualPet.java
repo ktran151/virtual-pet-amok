@@ -2,11 +2,11 @@ package vpamok;
 
 public class VirtualPet {
 
-	protected String name;
-	protected int happiness;
-	protected int health;
-	protected boolean alive;
-	protected String description;
+	private String name;
+	private int happiness;
+	private int health;
+	private boolean alive;
+	private String description;
 
 	public String getName() {
 		return name;
@@ -58,6 +58,10 @@ public class VirtualPet {
 			System.out.println(getName() + " is unhappy \n-10 HP");
 			loseHP();
 		}
+	}
+
+	public void gainHappy(int HP) {
+		happiness += HP;
 	}
 
 	public void loseHP() {

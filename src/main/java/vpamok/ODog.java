@@ -10,7 +10,7 @@ public class ODog extends OrganicPet implements Walking {
 
 	@Override
 	public void walk() {
-		happiness += 15;
+		gainHappy(15);
 		poo -= 20;
 	}
 

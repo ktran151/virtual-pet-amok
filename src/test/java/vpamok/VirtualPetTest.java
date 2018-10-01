@@ -12,14 +12,14 @@ public class VirtualPetTest {
 		// arrange
 		VirtualPet underTest = new VirtualPet("dan", "");
 
-		String petName = underTest.name;
+		String petName = underTest.getName();
 		Assert.assertEquals("dan", petName);
 	}
 
 	@Test
 	public void shouldBeAlive() {
 		VirtualPet underTest = new VirtualPet("", "");
-		boolean alive = underTest.alive;
+		boolean alive = underTest.getAlive();
 		Assert.assertTrue(alive);
 	}
 
@@ -28,13 +28,13 @@ public class VirtualPetTest {
 		VirtualPet underTest = new VirtualPet("", "");
 		underTest.die();
 		underTest.tick();
-		Assert.assertFalse(underTest.alive);
+		Assert.assertFalse(underTest.getAlive());
 	}
 
 	@Test
 	public void shouldLoseHealthWhenUnhappy() {
 		VirtualPet underTest = new VirtualPet("", "");
-		underTest.happiness = 20;
+		underTest.gainHappy(-30);
 		underTest.loseHP();
 		int result = underTest.getHealth();
 		Assert.assertEquals(90, result);

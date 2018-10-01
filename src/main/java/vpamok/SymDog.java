@@ -9,7 +9,7 @@ public class SymDog extends SymPet implements Walking {
 
 	@Override
 	public void walk() {
-		happiness += 15;
+		gainHappy(15);
 	}
 
 }

@@ -22,10 +22,10 @@ public class SymDogTest {
 		Assert.assertEquals(80, result);
 	}
 
-	@Test
-	public void oilShouldReduceRust() {
-		underTest.giveOil();
-	}
+//	@Test
+//	public void oilShouldReduceRust() {
+//		underTest.giveOil();
+//	}
 
 	@Test
 	public void shouldHaveInheritedHappy() {

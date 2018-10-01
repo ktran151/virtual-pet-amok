@@ -44,12 +44,12 @@ public class OrganicPet extends VirtualPet {
 
 	@Override
 	public void tick() {
-		happiness -= 10;
+		gainHappy(-10);
 		poo += 10;
 		hunger += 15;
 		thirst += 10;
 		loseHPIfSubOptimal();
-		if (health <= 0) {
+		if (getHealth() <= 0) {
 			die();
 		}
 	}

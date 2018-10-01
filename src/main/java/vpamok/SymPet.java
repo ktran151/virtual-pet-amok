@@ -16,7 +16,8 @@ public class SymPet extends VirtualPet {
 	public void decreaseHealthFromRust() {
 		if (rust >= 30) {
 			System.out.println(getName() + " is rusty! \n-10HP");
-			health -= 20;
+			loseHP();
+			loseHP();
 		}
 	}
 
@@ -31,9 +32,9 @@ public class SymPet extends VirtualPet {
 	@Override
 	public void tick() {
 		rust += 10;
-		happiness -= 10;
+		gainHappy(-10);
 		decreaseHealthFromRust();
-		if (health <= 0) {
+		if (getHealth() <= 0) {
 			die();
 		}
 	}

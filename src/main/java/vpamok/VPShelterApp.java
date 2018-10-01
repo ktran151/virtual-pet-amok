@@ -63,11 +63,14 @@ public class VPShelterApp {
 			shelter.playWithOnePet(petName);
 			break;
 		case "5":
+			shelter.walkDogs();
+			break;
+		case "6":
 			displayShelterSubMenu();
 			String roboChoice = in.nextLine();
 			ShelterChoice(shelter, roboChoice);
 			break;
-		case "6":
+		case "7":
 			System.out.println("Alright, these pets are going in the trash");
 			System.exit(0);
 			break;
@@ -152,6 +155,7 @@ public class VPShelterApp {
 		}
 	}
 
+	// display methods
 	private static void displayMainMenu() {
 		System.out.println("1. Organic Pet options");
 		System.out.println("2. Oil Machine Pets");
